@@ -20,7 +20,7 @@ class TransactionsController extends Controller
 
     public function createTransaction(Request $request)
     {
-        $transacoes = Transactions::get();
+        
 
         Transactions::create([
             'vl_fiat' => $request->valorFiat,
@@ -30,8 +30,10 @@ class TransactionsController extends Controller
             'user_cd_user' => 1,
         ]);
 
+        $teste = Transactions::get();
+
         $criaTransacao['success'] = true; 
-        $criaTransacao['retorno'] = $transacoes;
+        $criaTransacao['retorno'] = $teste;
 
         echo json_encode($criaTransacao);
         //return redirect()->route('transactions.index');

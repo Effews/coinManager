@@ -1,8 +1,8 @@
 <h1> registros </h1>
 
-    <div id="transacao">
+    <div id="transacoes" id="teste">
     @foreach ($transacoes as $transacao)
-        <p> {{$transacao->cd_transacao}} </p>
+        <div class="transacao" id="{{$transacao->cd_transacao}}"> {{$transacao->cd_transacao}} </div>
     @endforeach
     </div>
 
@@ -42,8 +42,17 @@
                 data: $(this).serialize(),
                 dataType: 'json',
                 success: function(response){
-                   var t = $('#transacao');
-                   t.append('<p>' + response.retorno[2].cd_transacao+ '<p>') //terminar for pra percorrer tudo e att
+                   var t = $('#transacoes');
+                  
+                   Object.keys(response.retorno).forEach(function(item){
+                        x = $('#transacoes').children().last().attr('id');
+                 
+
+                        if(response.retorno[item].cd_transacao > x ){
+                         
+                            t.append('<div class="transacao" id="'+response.retorno[item].cd_transacao+'">' +  " Valor " + response.retorno[item].cd_transacao + " Valor "  + response.retorno[item].vl_fiat + '</div>') //terminar for pra percorrer tudo e att
+                        }
+                    });
                 }
             });
         });
