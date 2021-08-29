@@ -20,7 +20,6 @@ class TransactionsController extends Controller
 
     public function createTransaction(Request $request)
     {
-        
 
         Transactions::create([
             'vl_fiat' => $request->valorFiat,
