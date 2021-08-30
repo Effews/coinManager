@@ -6,15 +6,12 @@ use App\Http\Controllers\{
 };
 use Illuminate\Support\Facades\Route;
 
+Route::post('/cadTransaction', [TransactionsController::class, 'createTransaction'])->name('transaction.create');
+Route::get('/main', [TransactionsController::class, 'index'])->name('transactions.index');
 
-//Route::get('/', [CoinController::class, 'index']);
-
-Route::post('/', [TransactionsController::class, 'createTransaction'])->name('transaction.create');
-Route::get('/', [TransactionsController::class, 'index'])->name('transactions.index');
-
-//Route::get('/', function () {
-//  return view('welcome');
-//});
+Route::get('/', function () {
+    return view('commonUser.teste');
+});
 
 Route::get('/dashboard', function () {
     return view('dashboard');

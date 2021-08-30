@@ -20,19 +20,18 @@ class TransactionsController extends Controller
 
     public function createTransaction(Request $request)
     {
-
         Transactions::create([
             'vl_fiat' => $request->valorFiat,
             'qtd_virtual_coin' => $request->qtdVirtualCoin,
             'coin_cd_coin' => $request->coinType,
             'fiat_cd_fiat' => $request->fiatType,
-            'user_cd_user' => 1,
+            'users_id' => 1,
         ]);
 
-        $teste = Transactions::get();
+        $dados = Transactions::get();
 
         $criaTransacao['success'] = true; 
-        $criaTransacao['retorno'] = $teste;
+        $criaTransacao['retorno'] = $dados;
 
         echo json_encode($criaTransacao);
         //return redirect()->route('transactions.index');

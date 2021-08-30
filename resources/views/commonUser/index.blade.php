@@ -4,26 +4,9 @@
     <head>
         <meta charset="UTF-8">
         <title>CoinManager</title>
-        <link href="{{ url(mix('css/main.css')) }}" rel="stylesheet" type="text/css">
     </head>
 
     <body>
-        <div>
-        <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
-            @if (Route::has('login'))
-                <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
-                    @auth
-                        <a href="{{ url('/dashboard') }}" class="text-sm text-gray-700 underline">Dashboard</a>
-                    @else
-                        <a href="{{ route('login') }}" class="text-sm text-gray-700 underline">Log in</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline">Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
-        </div>
         <div id="transacoes" id="teste">
             @foreach ($transacoes as $transacao)
             <div class="transacao" id="{{$transacao->cd_transacao}}"> 
@@ -61,7 +44,6 @@
             $(function() {
                 $('form[name="formTransacao"]').submit(function(event) {
                     event.preventDefault();
-
                     $.ajax({
                         url: "{{ route('transaction.create') }}",
                         type: "post",
@@ -69,14 +51,12 @@
                         dataType: 'json',
                         success: function(response) {
                             var t = $('#transacoes');
-
+                            console.log('teste');
                             Object.keys(response.retorno).forEach(function(item) {
                                 x = $('#transacoes').children().last().attr('id');
 
-
                                 if (response.retorno[item].cd_transacao > x) {
-
-                                    t.append('<div class="transacao" id="' + response.retorno[item].cd_transacao + '">' + " Valor " + response.retorno[item].cd_transacao + " Valor " + response.retorno[item].vl_fiat + '</div>') //terminar for pra percorrer tudo e att
+                                    t.append('<div class="transacao" id="' + response.retorno[item].cd_transacao + '">' + " codigo " + response.retorno[item].cd_transacao + " Valor " + response.retorno[item].vl_fiat + '</div>') //terminar for pra percorrer tudo e att
                                 }
                             });
                         }
@@ -85,5 +65,4 @@
             });
         </script>
     </body>
-
 </html>
