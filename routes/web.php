@@ -6,12 +6,14 @@ use App\Http\Controllers\{
 };
 use Illuminate\Support\Facades\Route;
 
-Route::post('/cadTransaction', [TransactionsController::class, 'createTransaction'])->name('transaction.create');
-Route::get('/main', [TransactionsController::class, 'index'])->name('transactions.index');
+Route::middleware(['auth'])->group( function(){
+    Route::post('/cadTransaction', [TransactionsController::class, 'createTransaction'])->name('transaction.create');
+    Route::get('/main', [TransactionsController::class, 'index'])->name('transactions.index');
+});
 
 Route::get('/', function () {
-    return view('commonUser.teste');
-});
+    return view('commonUser.homepage');
+})->middleware(['redirectLogin'])->name('teste');;
 
 Route::get('/dashboard', function () {
     return view('dashboard');
