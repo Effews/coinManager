@@ -22,7 +22,11 @@
         <div id="transacoes" id="teste">
             @foreach ($transacoes as $transacao)
             <div class="transacao" id="{{$transacao->cd_transacao}}"> 
-                <p>{{$transacao->cd_transacao}}</p> 
+                <label>Valor compra: {{$transacao->vl_fiat}} </label>
+                <label>Valor atual: (valorização depreciacao) </label>
+                <label>Moeda: (nome da moeda aqui) </label>
+                <label>Quantidade moedas: (qtd moeda aqui) </label>
+            <br><br>
             </div>
             @endforeach
         </div>
@@ -74,7 +78,12 @@
                                 x = $('#transacoes').children().last().attr('id');
 
                                 if (response.retorno[item].cd_transacao > x) {
-                                    t.append('<div class="transacao" id="' + response.retorno[item].cd_transacao + '">' + " codigo " + response.retorno[item].cd_transacao + " Valor " + response.retorno[item].vl_fiat + '</div>') //terminar for pra percorrer tudo e att
+                                    t.append('<div class="transacao" id="' + response.retorno[item].cd_transacao + '">' + 
+                                                "<label> Valor compra: " + response.retorno[item].vl_fiat + "</label>" +
+                                                "<label> Valor atual: (valorização depreciacao) " + '' + "</label>" + 
+                                                "<label> Moeda: (nome da moeda aqui)  " + '' + "</label>" +
+                                                "<label> Quantidade moedas:  " + '(qtd moedas aqui)' + "</label>" + 
+                                            '</div>') //terminar for pra percorrer tudo e att
                                 }
                             });
                         }
