@@ -36,11 +36,13 @@
                 @csrf
                 <select id="coinType" name="coinType">
                     @foreach ($coins as $coin)
-                    <option value="{{$coin->cd_coin}}"> {{$coin->nm_coin}} </option>
+                    <option value="{{$coin->cd_coin}}"> {{$coin->sg_coin}} </option>
                     @endforeach
                 </select>
 
-                <select id="fiatType" name="fiatType">
+                <!-- Campo começara a ser utilizado de fato quando forem feitas alterações para trabalhar
+            com diversos pares de moedas -->
+                <select id="fiatType" name="fiatType" style="display: none;">
                     @foreach ($fiats as $fiat)
                     <option value="{{$fiat->cd_fiat}}"> {{$fiat->sg_fiat}} </option>
                     @endforeach

@@ -11,7 +11,9 @@ class TransactionsController extends Controller
 {
     public function index()
     {
-        $transacoes = Transactions::get();
+        $userId = (auth()->id());
+
+        $transacoes = Transactions::where('users_id', $userId)->get();
         $coins = Coin::get();
         $fiats = Fiat::get();
         
@@ -20,15 +22,17 @@ class TransactionsController extends Controller
 
     public function createTransaction(Request $request)
     {
+        $userId = (auth()->id());
+
         Transactions::create([
             'vl_fiat' => $request->valorFiat,
             'qtd_virtual_coin' => $request->qtdVirtualCoin,
             'coin_cd_coin' => $request->coinType,
             'fiat_cd_fiat' => $request->fiatType,
-            'users_id' => 1,
+            'users_id' => $userId
         ]);
 
-        $dados = Transactions::get();
+        $dados = Transactions::where('users_id', $userId)->get();
 
         $criaTransacao['success'] = true; 
         $criaTransacao['retorno'] = $dados;
