@@ -1,11 +1,26 @@
 .transacao{
+    padding: 1%;
+    width: 24%;
     display: inline-block;
     margin-top: 15px;
     margin-left: 10px;
     margin-bottom: 10px;
-    padding: 50px;
     border: 2px solid rgb(180, 175, 175);
     border-radius: 6px;
+}
+
+.inlineContainerleft{
+    display: inline;
+    float: left;
+}
+
+.inlineContainerRight{
+    display: inline;
+    float: right;
+}
+
+.infos{
+    margin-bottom: 10px;
 }
 
 /*obrigatoriamente abrir um apos mexer no css
