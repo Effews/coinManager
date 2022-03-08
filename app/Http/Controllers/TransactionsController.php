@@ -16,6 +16,16 @@ class TransactionsController extends Controller
     public function index()
     {
 
+        $transacoes = $this->getTransactionsRegisters();
+        $coinsAppreciation = $this->coinDatabaseAppreciation();
+        $listCoins = (new CoinsController)->getCoinsToList();
+        $coins = Coin::get();
+        $fiats = Fiat::get();
+
+        return view('commonUser.index', compact('transacoes','coins', 'fiats', 'listCoins', 'coinsAppreciation'));
+    }
+
+    function getTransactionsRegisters(){
         $userId = (auth()->id());
 
         $transacoes = DB::table('transactions')
@@ -24,11 +34,7 @@ class TransactionsController extends Controller
             ->orderBy('cd_transacao','desc')
             ->get();
 
-        $listCoins = (new CoinsController)->getCoinsToList();
-        $coins = Coin::get();
-        $fiats = Fiat::get();
-
-        return view('commonUser.index', compact('transacoes','coins', 'fiats', 'listCoins'));
+        return $transacoes;
     }
 
 
@@ -42,13 +48,13 @@ class TransactionsController extends Controller
             ->get();
 
         $qtdMoedas = $coins[0]->qtd_virtual_coin;
-        $coin = $coins[0]->sg_coin;
+        $sgCoin = $coins[0]->sg_coin;
 
 
         $valorUnitario =  $coins[0]->vl_fiat / $qtdMoedas;
        
             
-        $binanceValueReturn = Http::get("https://api.binance.com/api/v3/ticker/price?symbol=".$coin."BRL");
+        $binanceValueReturn = Http::get("https://api.binance.com/api/v3/ticker/price?symbol=".$sgCoin."BRL");
         $binanceValueReturn = json_decode($binanceValueReturn, true);
         $binanceValueReturn = $binanceValueReturn['price'];
 
@@ -62,6 +68,9 @@ class TransactionsController extends Controller
         //fim valozaricao conta
 
         $pegaValor['success'] = true; 
+        $pegaValor['codTransac'] = $cdtransacao;
+        $pegaValor['sgCoin'] = $sgCoin;
+        $pegaValor['qtdVirtualCoin'] = $qtdMoedas; 
         $pegaValor['valorMoeda'] = $binanceValueReturn;
         $pegaValor['percentValorizacao'] = $valorizacaoPercent;
         $pegaValor['fiatValorUn'] = $valorUnitario;
@@ -108,21 +117,25 @@ class TransactionsController extends Controller
         echo json_encode($criaTransacao);
     }
 
-    public function tests(){
+    public function coinDatabaseAppreciation(){
 
         $userId = (auth()->id());
 
         $transacoes = DB::table('transactions')
-        ->get();
+            ->join('coins', 'transactions.coin_cd_coin', '=', 'coins.cd_coin' )
+            ->where('users_id', '=',3 )
+            ->orderBy('cd_transacao','desc')
+            ->get();
+
         $transacoes = json_decode($transacoes, true);
 
-        $iteratorr = 0;
+        $iteratorAppreciation = 0;
 
-        foreach ($transacoes as $coinsName){
-            $coins[$iteratorr] = $coinsName['cd_transacao'];
-            $iteratorr = $iteratorr + 1;
+        foreach ($transacoes as $transacao){
+            $calculos[$iteratorAppreciation] = $this->getCoinPrice($transacao['cd_transacao']);
+            $iteratorAppreciation = $iteratorAppreciation + 1;
         }
 
-        return $coins;
+        return $calculos;
     }
 }

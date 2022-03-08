@@ -4,7 +4,7 @@
     $listCoins 
 ?>
 <div>
-    
+
     <form name="formTransacao">
         @csrf
         <select id="coinType" name="coinType">
@@ -30,20 +30,19 @@
 
 <div class="col-12">
     <div id="transacoes" name="transacoes" class="row">
-        @foreach ($transacoes as $transacao)
-        <div class="transacao" id="{{$transacao->cd_transacao}}">
+        @foreach ($coinsAppreciation as $transacao)
+        <div class="transacao" id="{{$transacao->codTransac}}">
             <div class="infos">
-                <p class="{{$transacao->sg_coin}}">{{$transacao->sg_coin}} </label>
+                <p class="{{$transacao->sgCoin}}">{{$transacao->sgCoin}} </label>
                 <div class="inlineContainerleft">
-                    <p> Moedas compradas: {{$transacao->qtd_virtual_coin}} </p>
-                    fewfew
-                    <p> Val un pago R$:  </p>
-                    <p class="valorCompra">Total investido: {{$transacao->vl_fiat }} </p>
+                    <p> Moedas compradas: {{$transacao->qtdVirtualCoin}} </p>
+                    <p> Val un pago R$: {{$transacao->fiatValorUn}}  </p>
+                    <p class="valorCompra">Total investido: {{$transacao->valorInvestido }} </p>
                 </div>
                 <div class="inlineContainerRight">    
-                    <p class="valorCompra">Valorização un: </p>
-                    <p> Valorização de: valor%</p>
-                    <p> Total atual R$: </p>
+                    <p class="valorCompra">Valorização un: {{$transacao->valorizacaoUnitaria }} </p>
+                    <p> Valorização de: {{$transacao->percentValorizacao}} %</p>
+                    <p> Total atual R$: {{$transacao->fiatValorizacao}} </p>
                 </div>
             </div>
             <div>
