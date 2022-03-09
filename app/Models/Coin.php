@@ -10,4 +10,7 @@ class Coin extends Model
     use HasFactory;
 
     protected $table = 'coins';
+
+    protected $fillable  = ['sg_coin'];
+
 }
