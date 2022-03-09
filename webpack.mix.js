@@ -11,8 +11,15 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/js/app.js', 'public/js').postCss('resources/css/app.css', 'public/css', [
-    require('postcss-import'),
-    require('tailwindcss'),
-    require('autoprefixer'),
-]);
+mix.styles([
+    'resources/views/css/reset.css',
+    'resources/views/css/app.css',
+    'resources/views/css/main.css'
+], 'public/css/main.css')
+
+.scripts([
+    'resources/views/js/binance.js'
+], 'public/js/main.js')
+
+.version();
+
