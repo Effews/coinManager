@@ -19,4 +19,3 @@
     @yield('content')
 </body>
 </html>
-<!--OI-->
