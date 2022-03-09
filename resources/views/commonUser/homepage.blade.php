@@ -1,4 +1,5 @@
 @extends('commonUser.layout.app')
+
 <link rel="stylesheet" type="text/css" href="{{ asset('css/home.css') }}" >
 <script src="{{ asset('js/script.js') }}" defer></script>
 
