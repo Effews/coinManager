@@ -13,6 +13,11 @@ use Ramsey\Uuid\Type\Decimal;
 
 class CoinsController extends Controller
 {
+    public function index()
+    {
+        return view('commonUser.consultCripto');
+    }
+
     function getCoinsToList(){
         $binanceAllCoins = Http::get("https://api.binance.com/api/v3/ticker/price");
         $binanceAllCoins = json_decode($binanceAllCoins, true);

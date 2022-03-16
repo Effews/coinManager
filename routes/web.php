@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Route;
 Route::middleware(['auth'])->group( function(){
     Route::post('/cadTransaction', [TransactionsController::class, 'createTransaction'])->name('transaction.create');
     Route::get('/main', [TransactionsController::class, 'index'])->name('transactions.index');
-   
+    Route::get('/consulta', [CoinsController::class, 'index'])->name('coins.index');
 });
 
 //colocar dentro da rota logado assim que terminar de testar
