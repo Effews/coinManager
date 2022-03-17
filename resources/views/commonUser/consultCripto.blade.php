@@ -16,9 +16,7 @@
               @foreach ($coins as $coin)
               <option value="{{$coin->sg_coin}}"> {{$coin->sg_coin}} </option>
               @endforeach
-            </select>
-            <br>
-            <input class='btn btn-primary'type="submit" value="Submit">
+            </select>            
         </form> 
     </div>
     </div>
@@ -44,7 +42,7 @@
                 success: function(response) {
                     var t = $('#transacoes');
                     $('#valorMoeda').remove()
-                    t.append('<p id="valorMoeda">' + response.toFixed(2) + '</p>')
+                    t.append(' <p id="valorMoeda">' + response.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'}) + '</p>')
                 }
             });
         });
@@ -60,7 +58,7 @@
         success: function(response) {
           var t = $('#transacoes');
           $('#valorMoeda').remove()
-          t.append('<p id="valorMoeda">' + response.toFixed(2) + '</p>')
+          t.append(' <p id="valorMoeda">' + response.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'}) + '</p>')
         }
       });
   }

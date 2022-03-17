@@ -11,5 +11,5 @@ $classes = ($active ?? false)
 </a>
 
 <a href="/consulta" {{ $attributes->merge(['class' => $classes]) }}>
-    Cotação
+    Consulta a Cotação
 </a>
