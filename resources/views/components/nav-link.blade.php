@@ -9,3 +9,7 @@ $classes = ($active ?? false)
 <a {{ $attributes->merge(['class' => $classes]) }}>
     {{ $slot }}
 </a>
+
+<a href="/consulta" {{ $attributes->merge(['class' => $classes]) }}>
+    Cotação
+</a>

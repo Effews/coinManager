@@ -15,7 +15,9 @@ class CoinsController extends Controller
 {
     public function index()
     {
-        return view('commonUser.consultCripto');
+        $coins = Coin::get();
+
+        return view('commonUser.consultCripto', compact('coins'));
     }
 
     function getCoinsToList(){
@@ -101,5 +103,13 @@ class CoinsController extends Controller
                 'sg_coin' => $registerCoins
             ]);
         }
+    }
+
+    function price_coin($sgCoin){
+        $binanceValueReturn = Http::get("https://api.binance.com/api/v3/ticker/price?symbol=".$sgCoin."BRL");
+        $binanceValueReturn = json_decode($binanceValueReturn, true);
+        $binanceValueReturn = $binanceValueReturn['price'];
+
+        return $binanceValueReturn;
     }
 }

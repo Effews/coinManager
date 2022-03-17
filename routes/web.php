@@ -12,8 +12,8 @@ Route::middleware(['auth'])->group( function(){
     Route::get('/consulta', [CoinsController::class, 'index'])->name('coins.index');
 });
 
-//colocar dentro da rota logado assim que terminar de testar
 Route::get('/coinPrice/{transacao}', [TransactionsController::class, 'getCoinPrice'])->name('transaction.getCoinPrice');
+Route::get('/priceCoin/{sgCoin}', [CoinsController::class, 'price_coin'])->name('Coins.priceCoin');
 Route::get('/listCoins', [CoinsController::class, 'getCoinsToList'])->name('Coins.getCoinsToList');
 
 Route::get('/teste', [TransactionsController::class, 'coinDatabaseAppreciation'])->name('Transactions.coinDatabaseAppreciation');
