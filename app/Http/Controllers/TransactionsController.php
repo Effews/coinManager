@@ -118,12 +118,12 @@ class TransactionsController extends Controller
     }
 
     public function coinDatabaseAppreciation(){
-
+        $calculos = [];
         $userId = (auth()->id());
 
         $transacoes = DB::table('transactions')
             ->join('coins', 'transactions.coin_cd_coin', '=', 'coins.cd_coin' )
-            ->where('users_id', '=',3 )
+            ->where('users_id', '=', $userId )
             ->orderBy('cd_transacao','desc')
             ->get();
 
@@ -135,7 +135,7 @@ class TransactionsController extends Controller
             $calculos[$iteratorAppreciation] = $this->getCoinPrice($transacao['cd_transacao']);
             $iteratorAppreciation = $iteratorAppreciation + 1;
         }
-
+    
         return $calculos;
     }
 }
