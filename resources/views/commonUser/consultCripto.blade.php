@@ -12,7 +12,7 @@
     <div class='mb-3'> 
         <form action=" " name= "teste">
             <select class="form-control" id="coinName" placeholder='Nome Moeda' name="coins" >
-              <option value="none" disabled select >Selecione a moeda</option>
+              <option value="none" disabled selected >Selecione a moeda</option>
               @foreach ($coins as $coin)
               <option value="{{$coin->sg_coin}}"> {{$coin->sg_coin}} </option>
               @endforeach
@@ -31,22 +31,6 @@
 </div>
 
 <script>
-      $(function() {
-        $('#coinName').change(function(event) {
-            event.preventDefault();
-            $.ajax({
-                url: "http://coinmanager.com/priceCoin/"+document.getElementById("coinName").value,
-                type: "GET",
-                data:  {},
-                dataType: 'json',
-                success: function(response) {
-                    var t = $('#transacoes');
-                    $('#valorMoeda').remove()
-                    t.append(' <p id="valorMoeda">' + response.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'}) + '</p>')
-                }
-            });
-        });
-    });
 
     $(document).ready(function() {
       var ajaxCall = function() {
@@ -64,24 +48,6 @@
   }
   setInterval(ajaxCall, 3000);
 });
-
-    //   $(function() {
-    //     $('#coinName').change(function(event) {
-    //         event.preventDefault();
-    //         $.ajax({
-    //             url: "http://coinmanager.com/priceCoin/"+document.getElementById("coinName").value,
-    //             type: "GET",
-    //             data:  {},
-    //             dataType: 'json',
-    //             success: function(response) {
-    //                 var t = $('#transacoes');
-    //                 $('#valorMoeda').remove()
-    //                 t.append('<p id="valorMoeda">' + response.toFixed(2) + '</p>')
-    //             }
-    //         });
-    //     });
-    // });
-
 
 </script>
 
