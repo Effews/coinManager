@@ -11,6 +11,6 @@ class Transactions extends Model
 
     protected $table = 'transactions';
     
-    protected $fillable  = ['vl_fiat', 'qtd_virtual_coin', 'fiat_cd_fiat', 'coin_cd_coin', 'users_id'];
+    protected $fillable  = ['vl_fiat', 'qtd_virtual_coin', 'withdrawal', 'fiat_cd_fiat', 'coin_cd_coin', 'users_id'];
 
 }
