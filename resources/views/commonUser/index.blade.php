@@ -62,7 +62,7 @@
                             </div>
                         </div>
                         <div>
-                            <button type="button" class="btn btn-lg btn-block btn_retirada "><a href="#">Retirada</a></button>
+                            <button type="button" class="btn btn-lg btn-block btn_retirada "><a href="{{ route('transaction.withdrawal', $transacao->codTransac) }}">Retirada</a></button>
                         </div>
                     </div>
                     @endforeach
@@ -116,7 +116,7 @@
                                         '<p> Valorização un R$: ' + response2['valorizacaoUnitaria'] + '</p>' +
                                         '<p> Valorização de: ' + response2['percentValorizacao'] + '%</p>' +
                                         '<p> Total atual R$: ' + response2['fiatValorizacao'] + '</p></div>' +
-                                        '<div> <button type="button" class="btn btn-dark btn-lg btn-block "><a href="#">Retirada <a></button> </div></div>'
+                                        '<div> <button type="button" class="btn btn-dark btn-lg btn-block "><a href="http://coinmanager.com/withdrawal/' + response.retorno[0].cd_transacao+'">Retirada <a></button> </div></div>'
                                     )
                                 });
                             },
