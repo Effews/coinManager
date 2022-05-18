@@ -68,6 +68,10 @@
                     @endforeach
                 </div>
             </div>
+            <div class="flex justify-center">
+                {{ $coinsAppreciation->links() }}
+            </div>
+
         </div>
     </div>
 

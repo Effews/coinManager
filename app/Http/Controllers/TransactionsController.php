@@ -9,6 +9,8 @@ use App\Models\Transactions;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Pagination\Paginator;
+use Illuminate\Pagination\LengthAwarePaginator;
 use Ramsey\Uuid\Type\Decimal;
 
 class TransactionsController extends Controller
@@ -117,15 +119,27 @@ class TransactionsController extends Controller
             ->get();
 
         $transacoes = json_decode($transacoes, true);
-
         $iteratorAppreciation = 0;
 
         foreach ($transacoes as $transacao){
             $calculos[$iteratorAppreciation] = $this->getCoinPrice($transacao['cd_transacao']);
             $iteratorAppreciation = $iteratorAppreciation + 1;
         }
+
+        $calculos = $this->paginate($calculos, 8);
+        $calculos->withPath('/main');
     
         return $calculos;
+    }
+
+    public function paginate($items, $perPage = 4, $page = null)
+    {
+        $page = $page ?: (Paginator::resolveCurrentPage() ?: 1);
+        $total = count($items);
+        $currentpage = $page;
+        $offset = ($currentpage * $perPage) - $perPage ;
+        $itemstoshow = array_slice($items , $offset , $perPage);
+        return new LengthAwarePaginator($itemstoshow ,$total ,$perPage);
     }
 
     public function withdrawal($transactionID){
