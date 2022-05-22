@@ -9,6 +9,8 @@ use App\Models\Transactions;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Pagination\Paginator;
+use Illuminate\Pagination\LengthAwarePaginator;
 use Ramsey\Uuid\Type\Decimal;
 
 class TransactionsController extends Controller
@@ -16,27 +18,13 @@ class TransactionsController extends Controller
     public function index()
     {
 
-        $transacoes = $this->getTransactionsRegisters();
         $coinsAppreciation = $this->coinDatabaseAppreciation();
         $listCoins = (new CoinsController)->getCoinsToList();
         $coins = Coin::get();
         $fiats = Fiat::get();
 
-        return view('commonUser.index', compact('transacoes','coins', 'fiats', 'listCoins', 'coinsAppreciation'));
+        return view('commonUser.index', compact('coins', 'fiats', 'listCoins', 'coinsAppreciation'));
     }
-
-    function getTransactionsRegisters(){
-        $userId = (auth()->id());
-
-        $transacoes = DB::table('transactions')
-            ->join('coins', 'transactions.coin_cd_coin', '=', 'coins.cd_coin' )
-            ->where('users_id', '=',$userId )
-            ->orderBy('cd_transacao','desc')
-            ->get();
-
-        return $transacoes;
-    }
-
 
     function getCoinPrice($cdtransacao){
   
@@ -44,6 +32,7 @@ class TransactionsController extends Controller
         $coins = DB::table('transactions')
             ->join('coins', 'transactions.coin_cd_coin', '=', 'coins.cd_coin')
             ->select('transactions.vl_fiat', 'transactions.qtd_virtual_coin', 'coins.sg_coin')
+            ->where('withdrawal', 1)
             ->where('cd_transacao', '=', $cdtransacao)
             ->get();
 
@@ -88,8 +77,9 @@ class TransactionsController extends Controller
         Transactions::create([
             'vl_fiat' => $request->valorFiat,
             'qtd_virtual_coin' => $request->qtdVirtualCoin,
+            'withdrawal' => 1,
             'coin_cd_coin' => $request->coinType,
-            'fiat_cd_fiat' => $request->fiatType,
+            'fiat_cd_fiat' => 1,
             'users_id' => $userId
         ]);
 
@@ -124,18 +114,40 @@ class TransactionsController extends Controller
         $transacoes = DB::table('transactions')
             ->join('coins', 'transactions.coin_cd_coin', '=', 'coins.cd_coin' )
             ->where('users_id', '=', $userId )
+            ->where('withdrawal', '=', 1 )
             ->orderBy('cd_transacao','desc')
             ->get();
 
         $transacoes = json_decode($transacoes, true);
-
         $iteratorAppreciation = 0;
 
         foreach ($transacoes as $transacao){
             $calculos[$iteratorAppreciation] = $this->getCoinPrice($transacao['cd_transacao']);
             $iteratorAppreciation = $iteratorAppreciation + 1;
         }
+
+        $calculos = $this->paginate($calculos, 8);
+        $calculos->withPath('/main');
     
         return $calculos;
+    }
+
+    public function paginate($items, $perPage = 4, $page = null)
+    {
+        $page = $page ?: (Paginator::resolveCurrentPage() ?: 1);
+        $total = count($items);
+        $currentpage = $page;
+        $offset = ($currentpage * $perPage) - $perPage ;
+        $itemstoshow = array_slice($items , $offset , $perPage);
+        return new LengthAwarePaginator($itemstoshow ,$total ,$perPage);
+    }
+
+    public function withdrawal($transactionID){
+        
+        $transacoes = DB::table('transactions')
+        ->where('cd_transacao', $transactionID)
+        ->update(['withdrawal' => '0']);
+
+        return redirect()->route('transactions.index');
     }
 }

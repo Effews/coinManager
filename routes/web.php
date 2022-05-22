@@ -15,8 +15,9 @@ Route::middleware(['auth'])->group( function(){
 Route::get('/coinPrice/{transacao}', [TransactionsController::class, 'getCoinPrice'])->name('transaction.getCoinPrice');
 Route::get('/priceCoin/{sgCoin}', [CoinsController::class, 'price_coin'])->name('Coins.priceCoin');
 Route::get('/listCoins', [CoinsController::class, 'getCoinsToList'])->name('Coins.getCoinsToList');
+Route::get('/withdrawal/{cdTransaction}', [TransactionsController::class, 'withdrawal'])->name('transaction.withdrawal');
 
-Route::get('/teste', [TransactionsController::class, 'coinDatabaseAppreciation'])->name('Transactions.coinDatabaseAppreciation');
+# Route::get('/teste', [TransactionsController::class, 'coinDatabaseAppreciation'])->name('Transactions.coinDatabaseAppreciation');
 
 Route::get('/', function () {
     return view('commonUser.homepage');
