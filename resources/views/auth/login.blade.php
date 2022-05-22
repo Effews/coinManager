@@ -46,7 +46,7 @@
                                 <input type="checkbox">{{ __('Lembrar') }}
                             </div>
                             <div class="form-group">
-                                <x-button class="btn float-right login_btn">
+                                <x-button class="login_btn" >
                                     {{ __('Log in') }}
                                 </x-button>
 

@@ -35,7 +35,7 @@
 
                             </div>
                             <div class="form-group justify-content-center d-flex">
-                                <button type="submit" class="btn float-rigth login_btn">Enviar</button>
+                                <button type="submit" class=" submit- btn">Enviar</button>
                             </div>
                         </form>
                     </div>

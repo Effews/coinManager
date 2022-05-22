@@ -1,6 +1,11 @@
 @extends('commonUser.layout.appLogado')
 @section('content')
 
+
+<!--colocar na pagina que o resulta vem da api da binance
+-->
+
+
 <div class="container">
   <div class="d-flex justify-content-center">
     <div class="card-cot">

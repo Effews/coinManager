@@ -188587,7 +188587,8 @@ top: 200px;
 
 .transacao{
     padding: 1%;
-    width: 24%;
+    width: 250px;
+    height: 250px;
     display: inline-block;
     margin-top: 15px;
     margin-left: 10px;
@@ -188630,6 +188631,7 @@ background-color: rgba(0,0,0,0.5) !important;
 position: absolute;
 top: 350px;
 }
+
 .card-transacao{
   height: 250px;
   margin-top: auto;
@@ -188690,7 +188692,7 @@ width: 30px !important;
 background-color: #FFC312;
 color: black !important;
 border:0 !important;
-height: 30px;
+height: 30px !important;
 }
 
 .inputTransacao{
@@ -188736,12 +188738,39 @@ margin-right: 5px !important;
 color: black !important;
 background-color: #FFC312 !important;
 width: 380px;
+height: 32px;
 font-size: small !important;
+text-align: center  !important;
+display: inline-block !important;
+padding:.8rem 3rem !important;
+border:.2rem solid var(--yellow) !important;
+cursor: pointer !important;
+font-size: 1.7rem !important;
+border-radius: .5rem !important;
+position: relative !important;
+overflow: hidden !important;
+z-index: 0 !important;
+margin-top: 1rem !important;
 }
 
 .login_btn:hover{
 color: white !important;
 background-color: black !important;
+}
+
+.submit-btn{
+color: black;
+background-color: #FFC312;
+border-radius: .5rem !important;
+z-index: 0 !important;
+border:.2rem solid var(--yellow) !important;
+width: 380px !important;
+height: 32px !important;
+}
+
+.submit-btn:hover{
+    color: white;
+    background-color: black;
 }
 
 .btn_retirada{
@@ -188752,6 +188781,9 @@ background-color: black !important;
 .btn_retirada:hover{
   color: white;
   background-color: black;
+}
+.btn_retirada:hover a{
+  color: white;
 }
 
 .links{
