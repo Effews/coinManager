@@ -16,7 +16,7 @@
         <form action=" " name="teste">
           <div class="input-group form-group">
             <div class="input-group-prepend">
-              <span class="input-group-text icon"><i class="fab fa-bitcoin preto"></i></span>
+              <span class="input-group-text icon-cot"><i class="fab fa-bitcoin preto"></i></span>
             </div>
             <select class="form-control cot" id="coinName" placeholder='Nome Moeda' name="coins">
               <option value="none" disabled select>Selecione a moeda</option>
@@ -28,8 +28,8 @@
         </form>
         <div id="transacoes" name="transacoes" class="row d-flex justify-content-center">
           <label for="coinname" class="form-label labelColor">Valor em tempo real: </label>
-          <br>
         </div>
+        <p for="fonte" class="fonte justify-content-center d-flex">Dados extraidos pela Binance.</a></p>
       </div>
     </div>
   </div>

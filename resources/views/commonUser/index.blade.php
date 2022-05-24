@@ -35,10 +35,13 @@
 
                             </div>
                             <div class="form-group justify-content-center d-flex">
-                                <button type="submit" class=" submit- btn">Enviar</button>
+                                <button type="submit" class=" submit-btn">Enviar</button>
                             </div>
                         </form>
                     </div>
+                </div>
+                <div class="flex justify-center">
+                    {{ $coinsAppreciation->links() }}
                 </div>
             </div>
 
@@ -62,29 +65,19 @@
                             </div>
                         </div>
                         <div>
-                            <button type="button" class="btn btn-lg btn-block btn_retirada "><a href="{{ route('transaction.withdrawal', $transacao->codTransac) }}">Retirada</a></button>
+                            <button type="button" class="btn btn_retirada "><a href="{{ route('transaction.withdrawal', $transacao->codTransac) }}">Retirada</a></button>
                         </div>
                     </div>
                     @endforeach
                 </div>
             </div>
-            <div class="flex justify-center">
-                {{ $coinsAppreciation->links() }}
-            </div>
+
 
         </div>
     </div>
 
     <section class="footer">
-
-        <div class="share">
-            <a href="#" class="btnf">facebook</a>
-            <a href="#" class="btnf">twitter</a>
-            <a href="#" class="btnf">instagram</a>
-        </div>
-
-        <h1 class="credit"> Desenvolvido por <span> Igor Oliveira, Leonardo Freitas, Marlon Santos </span> | Todos os direitos reservados! </h1>
-
+        <h1 class="credit-index"> Desenvolvido por <span> Igor Oliveira, Leonardo Freitas, Marlon Santos </span> | Todos os direitos reservados! </h1>
     </section>
 
 
@@ -111,7 +104,8 @@
                                 var t = $('#transacoes');
                                 Object.keys(response.retorno).forEach(function(item) {
                                     t.prepend('<div class="transacao" id=' + response.retorno[item].cd_transacao + '>' +
-                                        '<div class="infos">' + '<p class="' + response.retorno[item].sg_coin + '" > ' + response.retorno[item].sg_coin + ' </p>' +
+                                        '<div class="infos">' +
+                                        '<p class="' + response.retorno[item].sg_coin + '" > ' + response.retorno[item].sg_coin + ' </p>' +
                                         '<div class="inlineContainerLeft">' +
                                         '<p> Moedas compradas: ' + response.retorno[item].qtd_virtual_coin + '</p>' +
                                         '<p class="valorCompra">Valor un pago R$: ' + response2['fiatValorUn'] + '</p>' +
@@ -120,7 +114,7 @@
                                         '<p> Valorização un R$: ' + response2['valorizacaoUnitaria'] + '</p>' +
                                         '<p> Valorização de: ' + response2['percentValorizacao'] + '%</p>' +
                                         '<p> Total atual R$: ' + response2['fiatValorizacao'] + '</p></div>' +
-                                        '<div> <button type="button" class="btn btn-dark btn-lg btn-block "><a href="http://coinmanager.com/withdrawal/' + response.retorno[0].cd_transacao+'">Retirada <a></button> </div></div>'
+                                        '<div> <button type="button" class="btn btn_retirada "><a href="http://coinmanager.com/withdrawal/' + response.retorno[0].cd_transacao + '">Retirada <a></button> </div></div>'
                                     )
                                 });
                             },

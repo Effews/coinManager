@@ -63,7 +63,7 @@
                             </div>
                         </form>
                     </div>
-                    <div class="card-footer">
+                    <div class="card-footer-register">
                     <div class="d-flex justify-content-center links">
                             <a href="{{ route('login') }}">Já tem Cadastro?</a>
                         </div>

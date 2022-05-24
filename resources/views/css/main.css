@@ -11,8 +11,9 @@ top: 200px;
 .transacao{
     padding: 1%;
     width: 250px;
-    height: 250px;
-    display: inline-block;
+    height: 270px;
+    display: grid;
+    font-size: 0.96rem;
     margin-top: 15px;
     margin-left: 10px;
     margin-bottom: 10px;
@@ -42,9 +43,7 @@ align-content: center;
 .logoSize{
 font-size: medium;
 }
-.captalize{
-  text-transform: capitalize;
-}
+
 .card{
 height: 250px;
 margin-top: auto;
@@ -98,15 +97,25 @@ top: 350px;
 }
 
 .cot{
-height: 40px !important;
+height: 30px !important;
+font-size: 0.85rem;
 }
+
 .icon{
   height: 40px !important;
 }
 
+
 .card-header h3{
   font-size: large;
   color: black;
+  font-weight: 700;
+}
+
+
+.titulo{
+  justify-content: center;
+  display: center;
   font-weight: 700;
 }
 
@@ -196,15 +205,22 @@ height: 32px !important;
     background-color: black;
 }
 
+div button .btn_retirada{
+  justify-content: center;
+}
+
 .btn_retirada{
   color: black;
   background-color: #FFC312;
+  font-size: 1.3rem !important;
 }
 
 .btn_retirada:hover{
   color: white;
-  background-color: black;
+  background-color: #c09000;
 }
+
+
 .btn_retirada:hover a{
   color: white;
 }
@@ -228,6 +244,14 @@ margin-left: 4px;
   font-size: small !important;
   color: #FFC312 !important;
 }
+.card-footer-register{
+  padding: 0;
+}
+
+.fonte{
+  color: white;
+  text-align: center;
+}
 
 /*Footer*/
 .footer{
@@ -250,6 +274,17 @@ margin-left: 4px;
 }
 
 .footer .credit span{
+  color:var(--yellow);
+}
+
+.footer .credit-index{
+  padding:2.5rem 1rem;
+  color:#fff;
+  font-weight: normal;
+  font-size: 1.2rem;
+}
+
+.footer .credit-index span{
   color:var(--yellow);
 }
 
