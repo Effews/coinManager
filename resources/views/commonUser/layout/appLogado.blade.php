@@ -25,6 +25,7 @@
     <link rel="stylesheet" href="{{URL::asset('/css/main.css')}}">
     <link rel="stylesheet" href="css/main.css" >
     <link rel="stylesheet" href="{{ url(mix('css/main.css')) }}">
+
 </head>
 
 <body>
@@ -36,7 +37,7 @@
                 <div class="flex">
                     <!-- Logo -->
                     <div class="flex-shrink-0 flex items-center logoSize">
-                    <a href="{{ route('dashboard') }}" class="logo"><i class="fab fa-bitcoin"></i>Coin Manager</a>
+                    <a href="{{ route('transactions.index') }}" class="logo"><i class="fab fa-bitcoin"></i>Coin Manager</a>
 
                     </div>
 
