@@ -1,0 +1,1 @@
+{{ $coinsAppreciation->links() }}
