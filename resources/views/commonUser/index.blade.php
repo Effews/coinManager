@@ -40,12 +40,10 @@
                         </form>
                     </div>
                 </div>
-                <div class="flex justify-center">
+                <div class="flex justify-center" id="teste">
                     {{ $coinsAppreciation->links() }}
                 </div>
             </div>
-
-
 
             <div class="col-8 d-flex">
                 <div id="transacoes" name="transacoes" class="row">
@@ -71,8 +69,6 @@
                     @endforeach
                 </div>
             </div>
-
-
         </div>
     </div>
 
@@ -115,7 +111,11 @@
                                         '<p> Valorização de: ' + response2['percentValorizacao'] + '%</p>' +
                                         '<p> Total atual R$: ' + response2['fiatValorizacao'] + '</p></div>' +
                                         '<div> <button type="button" class="btn btn_retirada "><a href="http://coinmanager.com/withdrawal/' + response.retorno[0].cd_transacao + '">Retirada <a></button> </div></div>'
-                                    )
+                                        )
+                                        if (document.querySelectorAll('#transacoes button').length + 1 >= 8){
+                                            const element = document.getElementById('transacoes').children[8].id;
+                                            $('#'+element).remove();    
+                                        }
                                 });
                             },
                         });

@@ -42,12 +42,10 @@ class TransactionsController extends Controller
 
         $valorUnitario =  $coins[0]->vl_fiat / $qtdMoedas;
        
-            
         $binanceValueReturn = Http::get("https://api.binance.com/api/v3/ticker/price?symbol=".$sgCoin."BRL");
         $binanceValueReturn = json_decode($binanceValueReturn, true);
         $binanceValueReturn = $binanceValueReturn['price'];
 
-        
         //Valorizacao conta
         $valorizacaoPercent = number_format((($binanceValueReturn - $valorUnitario) / $valorUnitario) * 100 , 2);
         $valorizacaoFiat = number_format(($binanceValueReturn * $qtdMoedas),2);
@@ -116,20 +114,19 @@ class TransactionsController extends Controller
             ->where('users_id', '=', $userId )
             ->where('withdrawal', '=', 1 )
             ->orderBy('cd_transacao','desc')
-            ->get();
+            ->paginate(8);
 
-        $transacoes = json_decode($transacoes, true);
+        $transacoes = (object)($transacoes);
         $iteratorAppreciation = 0;
 
+   
         foreach ($transacoes as $transacao){
-            $calculos[$iteratorAppreciation] = $this->getCoinPrice($transacao['cd_transacao']);
+            $transacoes[$iteratorAppreciation] = $this->getCoinPrice($transacoes[$iteratorAppreciation]->cd_transacao);
+            echo "<script>console.log('Debug Objects: " . $iteratorAppreciation . "' );</script>";
             $iteratorAppreciation = $iteratorAppreciation + 1;
         }
-
-        $calculos = $this->paginate($calculos, 8);
-        $calculos->withPath('/main');
     
-        return $calculos;
+        return $transacoes;
     }
 
     public function paginate($items, $perPage = 4, $page = null)
