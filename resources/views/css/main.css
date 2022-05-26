@@ -253,6 +253,10 @@ margin-left: 4px;
   text-align: center;
 }
 
+.datetime{
+  color:white;
+}
+
 /*Footer*/
 .footer{
   background:#000;
