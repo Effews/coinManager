@@ -11,7 +11,7 @@
 
                 <div class="card-transacao">
                     <div class="card-header">
-                        <h3>Transação</h3>
+                        <h3>Transação</h3><p class="datetime">Dados atualizados em: {{date('H:i:s')}}</p>
                     </div>
                     <div class="card-body">
                         <form name="formTransacao">
@@ -40,9 +40,7 @@
                         </form>
                     </div>
                 </div>
-                <div class="flex justify-center" id="teste">
-                    {{ $coinsAppreciation->links() }}
-                </div>
+
             </div>
 
             <div class="col-8 d-flex">
@@ -64,13 +62,23 @@
                         </div>
                         <div>
                             <button type="button" class="btn btn_retirada "><a href="{{ route('transaction.withdrawal', $transacao->codTransac) }}">Retirada</a></button>
+                            <!--linha acima vem o onclick com o modal-->
                         </div>
                     </div>
                     @endforeach
                 </div>
             </div>
         </div>
+        <div class="flex justify-center" id="teste">
+            {{ $coinsAppreciation->links() }}
+        </div>
     </div>
+
+
+<!--
+    clicou em retirar abre um modal
+-->
+
 
     <section class="footer">
         <h1 class="credit-index"> Desenvolvido por <span> Igor Oliveira, Leonardo Freitas, Marlon Santos </span> | Todos os direitos reservados! </h1>
@@ -111,11 +119,11 @@
                                         '<p> Valorização de: ' + response2['percentValorizacao'] + '%</p>' +
                                         '<p> Total atual R$: ' + response2['fiatValorizacao'] + '</p></div>' +
                                         '<div> <button type="button" class="btn btn_retirada "><a href="http://coinmanager.com/withdrawal/' + response.retorno[0].cd_transacao + '">Retirada <a></button> </div></div>'
-                                        )
-                                        if (document.querySelectorAll('#transacoes button').length + 1 >= 8){
-                                            const element = document.getElementById('transacoes').children[8].id;
-                                            $('#'+element).remove();    
-                                        }
+                                    )
+                                    if (document.querySelectorAll('#transacoes button').length + 1 >= 8) {
+                                        const element = document.getElementById('transacoes').children[8].id;
+                                        $('#' + element).remove();
+                                    }
                                 });
                             },
                         });
