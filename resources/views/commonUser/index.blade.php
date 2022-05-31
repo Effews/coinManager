@@ -11,7 +11,12 @@
 
                 <div class="card-transacao">
                     <div class="card-header">
+<<<<<<< HEAD
                         <h3>Transação</h3><p class="datetime">Dados atualizados em: {{date('H:i:s')}}</p>
+=======
+                        <h3>Transação</h3>
+                        <p class="datetime">Dados atualizados em: {{date('H:i:s')}}</p>
+>>>>>>> f4447eead42a5dcd51c737c15be10ab287e1808d
                     </div>
                     <div class="card-body">
                         <form name="formTransacao">
@@ -61,7 +66,11 @@
                             </div>
                         </div>
                         <div>
+<<<<<<< HEAD
                             <button type="button" class="btn btn_retirada "><a href="{{ route('transaction.withdrawal', $transacao->codTransac) }}">Retirada</a></button>
+=======
+                            <button type="button" class="btn btn_retirada" id="myBtn"><a href="{{ route('transaction.withdrawal', $transacao->codTransac) }}">Retirada</a></button>
+>>>>>>> f4447eead42a5dcd51c737c15be10ab287e1808d
                             <!--linha acima vem o onclick com o modal-->
                         </div>
                     </div>
@@ -75,7 +84,52 @@
     </div>
 
 
+<<<<<<< HEAD
 <!--
+=======
+
+    <div id="myModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h1>Retirada</h1>
+            <input type="text" name="qtdRetirada" title="qtdRetirada" id="qtdRetirada" placeholder="Quantidade de moedas a serem retiradas" class="Retirada">
+
+            <button type="button" class="btn btn-success btn-modal"><a href="AQUI VAI A CONFIRMAÇÃO">Confirmar</a></button>
+            <button type="button" class="btn btn-danger btn-modal"><a href="AQUI VAI A CONFIRMAÇÃO">Cancelar</a></button>
+        </div>
+
+    </div>
+
+
+
+    <script>
+        var modal = document.getElementById("myModal");
+
+        var btn = document.getElementById("myBtn");
+
+
+        var span = document.getElementsByClassName("close")[0];
+
+        btn.onclick = function() {
+            modal.style.display = "block";
+        }
+
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+
+
+    <!--
+>>>>>>> f4447eead42a5dcd51c737c15be10ab287e1808d
     clicou em retirar abre um modal
 -->
 
@@ -118,7 +172,11 @@
                                         '<p> Valorização un R$: ' + response2['valorizacaoUnitaria'] + '</p>' +
                                         '<p> Valorização de: ' + response2['percentValorizacao'] + '%</p>' +
                                         '<p> Total atual R$: ' + response2['fiatValorizacao'] + '</p></div>' +
+<<<<<<< HEAD
                                         '<div> <button type="button" class="btn btn_retirada "><a href="http://coinmanager.com/withdrawal/' + response.retorno[0].cd_transacao + '">Retirada <a></button> </div></div>'
+=======
+                                        '<div> <button type="button" class="btn btn_retirada" id="myBtn"><a href="http://coinmanager.com/withdrawal/' + response.retorno[0].cd_transacao + '">Retirada <a></button> </div></div>'
+>>>>>>> f4447eead42a5dcd51c737c15be10ab287e1808d
                                     )
                                     if (document.querySelectorAll('#transacoes button').length + 1 >= 8) {
                                         const element = document.getElementById('transacoes').children[8].id;
@@ -132,5 +190,6 @@
             });
         });
     </script>
+
 
     @endsection
