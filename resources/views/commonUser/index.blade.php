@@ -151,7 +151,7 @@
                     dataType: 'json',
                     success: function(response) {
                         $.ajax({
-                            url: "http://coinmanager.com/coinPrice/" + response.retorno[0].cd_transacao,
+                            url: "/coinPrice/" + response.retorno[0].cd_transacao,
                             type: "GET",
                             data: {},
                             dataType: 'json',
