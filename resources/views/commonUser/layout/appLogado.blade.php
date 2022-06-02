@@ -23,8 +23,6 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="{{URL::asset('/css/main.css')}}">
-    <link rel="stylesheet" href="css/main.css" >
-    <link rel="stylesheet" href="{{ url(mix('css/main.css')) }}">
 
 </head>
 
