@@ -169,7 +169,7 @@
                                         '<p> Valorização un R$: ' + response2['valorizacaoUnitaria'] + '</p>' +
                                         '<p> Valorização de: ' + response2['percentValorizacao'] + '%</p>' +
                                         '<p> Total atual R$: ' + response2['fiatValorizacao'] + '</p></div>' +
-                                        '<div> <button type="button" class="btn btn_retirada abrir"><a href="http://coinmanager.com/withdrawal/' + response.retorno[0].cd_transacao + '">Retirada <a></button> </div></div>'
+                                        '<div> <button type="button" class="btn btn_retirada abrir"><a href="/withdrawal/' + response.retorno[0].cd_transacao + '">Retirada <a></button> </div></div>'
                                     )
                                     if (document.querySelectorAll('#transacoes button').length + 1 >= 8) {
                                         const element = document.getElementById('transacoes').children[8].id;
