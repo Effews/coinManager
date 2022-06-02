@@ -62,8 +62,7 @@
                             </div>
                         </div>
                         <div>
-
-                            <button type="button" class="btn btn_retirada" id="myBtn">Retirada</button>
+                            <button type="button" class="btn btn_retirada myBtn" >Retirada</button>
                             <!--linha acima vem o onclick com o modal-->
                         </div>
                     </div>
@@ -107,8 +106,7 @@
     <script>
         var modal = document.getElementById("myModal");
 
-        var btn = document.getElementById("myBtn");
-
+        var btn = document.getElementsByClassName("myBtn");
 
         var span = document.getElementsByClassName("fechar")[0];
 
@@ -171,7 +169,7 @@
                                         '<p> Valorização un R$: ' + response2['valorizacaoUnitaria'] + '</p>' +
                                         '<p> Valorização de: ' + response2['percentValorizacao'] + '%</p>' +
                                         '<p> Total atual R$: ' + response2['fiatValorizacao'] + '</p></div>' +
-                                        '<div> <button type="button" class="btn btn_retirada" id="myBtn"><a href="http://coinmanager.com/withdrawal/' + response.retorno[0].cd_transacao + '">Retirada <a></button> </div></div>'
+                                        '<div> <button type="button" class="btn btn_retirada myBtn"><a href="http://coinmanager.com/withdrawal/' + response.retorno[0].cd_transacao + '">Retirada <a></button> </div></div>'
                                     )
                                     if (document.querySelectorAll('#transacoes button').length + 1 >= 8) {
                                         const element = document.getElementById('transacoes').children[8].id;
