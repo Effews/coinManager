@@ -380,21 +380,34 @@ input#valorFiat {
   width: 80%; /* Could be more or less, depending on screen size */
 }
 
-/* The Close Button */
-.close {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
+
+/* media queries  */
+
+.modal-header h5{
+  display: flex !important;
+  justify-content: center !important;
+  align-items: flex-start !important;
+  color: #000;
+  font-weight: 700;
 }
 
-.close:hover,
-.close:focus {
-  color: black;
-  text-decoration: none;
-  cursor: pointer;
+.modal-body #qtdRetirada{
+  width: 100%;
 }
-/* media queries  */
+
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
 
 @media(max-width:991px){
 

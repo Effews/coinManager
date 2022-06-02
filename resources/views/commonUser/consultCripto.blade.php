@@ -103,6 +103,11 @@
   //     });
   // });
 </script>
+<section class="footer">
+
+    <h1 class="credit-index"> Desenvolvido por <span> Igor Oliveira, Leonardo Freitas, Marlon Santos </span> | Todos os direitos reservados! </h1>
+
+</section>
 
 
 @endsection

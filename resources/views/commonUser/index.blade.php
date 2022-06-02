@@ -15,7 +15,7 @@
                         <p class="datetime">Dados atualizados em: {{date('H:i:s')}}</p>
                     </div>
                     <div class="card-body">
-                    <form name="formTransacao">
+                        <form name="formTransacao">
                             @csrf
                             <div class="input-group form-group">
 
@@ -81,17 +81,27 @@
     <div id="myModal" class="modal">
 
         <!-- Modal content -->
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h1>Retirada</h1>
-            <input type="text" name="qtdRetirada" title="qtdRetirada" id="qtdRetirada" placeholder="Valor total de retirada." class="Retirada">
-
-            <button type="button" class="btn btn-success btn-modal"><a href="{{ route('transaction.withdrawal', $transacao->codTransac) }}">Confirmar</a></button>
-            <button type="button" class="btn btn-danger btn-modal"><a href="AQUI VAI A CONFIRMAÇÃO">Cancelar</a></button>
+        <div class="modal-dialog  ">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Retirada</h5>
+                    <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <input type="number" name="qtdRetirada" title="qtdRetirada" id="qtdRetirada" placeholder="Valor total de retirada." class="Retirada">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success">Confirmar</button>
+                    <button type="button" class="btn btn-danger fechar" data-mdb-dismiss="modal">
+                        Cancelar
+                    </button>
+                </div>
+            </div>
         </div>
-
     </div>
 
+
+    <!-- Modal -->
 
 
     <script>
@@ -100,7 +110,7 @@
         var btn = document.getElementById("myBtn");
 
 
-        var span = document.getElementsByClassName("close")[0];
+        var span = document.getElementsByClassName("fechar")[0];
 
         btn.onclick = function() {
             modal.style.display = "block";
@@ -157,7 +167,7 @@
                                         '<p> Moedas compradas: ' + response.retorno[item].qtd_virtual_coin + '</p>' +
                                         '<p class="valorCompra">Valor un pago R$: ' + response2['fiatValorUn'] + '</p>' +
                                         '<p class="valorCompra">Total Investido R$: ' + response2['valorInvestido'] + '</p></div>' +
-                                        ' <div class="inlineContainerRight">' +
+                                        '<div class="inlineContainerRight">' +
                                         '<p> Valorização un R$: ' + response2['valorizacaoUnitaria'] + '</p>' +
                                         '<p> Valorização de: ' + response2['percentValorizacao'] + '%</p>' +
                                         '<p> Total atual R$: ' + response2['fiatValorizacao'] + '</p></div>' +
