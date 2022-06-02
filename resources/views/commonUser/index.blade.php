@@ -11,12 +11,8 @@
 
                 <div class="card-transacao">
                     <div class="card-header">
-<<<<<<< HEAD
-                        <h3>Transação</h3><p class="datetime">Dados atualizados em: {{date('H:i:s')}}</p>
-=======
                         <h3>Transação</h3>
                         <p class="datetime">Dados atualizados em: {{date('H:i:s')}}</p>
->>>>>>> f4447eead42a5dcd51c737c15be10ab287e1808d
                     </div>
                     <div class="card-body">
                         <form name="formTransacao">
@@ -87,7 +83,7 @@
         <div class="modal-content">
             <span class="close">&times;</span>
             <h1>Retirada</h1>
-            <input type="text" name="qtdRetirada" title="qtdRetirada" id="qtdRetirada" placeholder="Quantidade de moedas a serem retiradas" class="Retirada">
+            <input type="text" name="qtdRetirada" title="qtdRetirada" id="qtdRetirada" placeholder="Valor total de retirada." class="Retirada">
 
             <button type="button" class="btn btn-success btn-modal"><a href="AQUI VAI A CONFIRMAÇÃO">Confirmar</a></button>
             <button type="button" class="btn btn-danger btn-modal"><a href="AQUI VAI A CONFIRMAÇÃO">Cancelar</a></button>
