@@ -15,7 +15,7 @@
                         <p class="datetime">Dados atualizados em: {{date('H:i:s')}}</p>
                     </div>
                     <div class="card-body">
-                        <form name="formTransacao">
+                    <form name="formTransacao">
                             @csrf
                             <div class="input-group form-group">
 
@@ -62,7 +62,8 @@
                             </div>
                         </div>
                         <div>
-                            <button type="button" class="btn btn_retirada" id="myBtn"><a href="{{ route('transaction.withdrawal', $transacao->codTransac) }}">Retirada</a></button>
+
+                            <button type="button" class="btn btn_retirada" id="myBtn">Retirada</button>
                             <!--linha acima vem o onclick com o modal-->
                         </div>
                     </div>
@@ -85,7 +86,7 @@
             <h1>Retirada</h1>
             <input type="text" name="qtdRetirada" title="qtdRetirada" id="qtdRetirada" placeholder="Valor total de retirada." class="Retirada">
 
-            <button type="button" class="btn btn-success btn-modal"><a href="AQUI VAI A CONFIRMAÇÃO">Confirmar</a></button>
+            <button type="button" class="btn btn-success btn-modal"><a href="{{ route('transaction.withdrawal', $transacao->codTransac) }}">Confirmar</a></button>
             <button type="button" class="btn btn-danger btn-modal"><a href="AQUI VAI A CONFIRMAÇÃO">Cancelar</a></button>
         </div>
 
