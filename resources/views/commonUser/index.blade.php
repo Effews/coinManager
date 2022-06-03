@@ -62,7 +62,7 @@
                             </div>
                         </div>
                         <div>
-                            <button type="button" class="btn btn_retirada abrir" >Retirada</button>
+                            <button type="button" class="btn btn_retirada abrir" onclick="openModal()">Retirada</button>
                             <!--linha acima vem o onclick com o modal-->
                         </div>
                     </div>
@@ -106,11 +106,9 @@
     <script>
         var modal = document.getElementById("myModal");
 
-        var btn = document.getElementsByClassName("abrir");
-
         var span = document.getElementsByClassName("fechar")[0];
 
-        btn.onclick = function() {
+        function openModal() {
             modal.style.display = "block";
         }
 
