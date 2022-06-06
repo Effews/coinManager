@@ -62,7 +62,7 @@
                             </div>
                         </div>
                         <div>
-                            <button type="button" class="btn btn_retirada "><a href="{{ route('transaction.withdrawal', $transacao->codTransac) }}">Retirada</a></button>
+                            <button type="button" class="btn btn_retirada"><a href="{{ route('transaction.withdrawal', $transacao->codTransac) }}">Retirada</a></button>
                         </div>
                     </div>
                     @endforeach
@@ -174,7 +174,12 @@
                                         const element = document.getElementById('transacoes').children[8].id;
                                         $('#' + element).remove();
                                     }
-                                    console.log(document.querySelectorAll('#transacoes button').length)
+
+                                    var paginations = document.getElementById("teste");
+
+                                    if (paginations.firstChildtrim == "" || paginations.firstChildtrim == undefined || paginations.firstChildtrim == " " && document.querySelectorAll('#transacoes button').length == 8){
+                                        location.reload();
+                                    }
                                 });
                             },
                         });
