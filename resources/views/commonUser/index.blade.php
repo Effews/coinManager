@@ -30,9 +30,9 @@
                                     @endforeach
                                 </select>
 
-                                <input type="number" name="valorFiat" title="valorFiat" id="valorFiat" placeholder="Valor de custo">
+                                <input type="text" name="valorFiat" title="valorFiat" id="valorFiat" placeholder="Valor de custo">
 
-                                <input type="number" name="qtdVirtualCoin" title="qtdVirtualCoin" id="qtdVirtualCoin" placeholder="Quantidade de moedas compradas" class="inputTransacao">
+                                <input type="text" name="qtdVirtualCoin" title="qtdVirtualCoin" id="qtdVirtualCoin" placeholder="Quantidade de moedas compradas" class="inputTransacao">
 
                             </div>
                             <div class="form-group justify-content-center d-flex">
