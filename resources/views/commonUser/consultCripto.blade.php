@@ -50,7 +50,7 @@
     $('#coinName').change(function(event) {
       event.preventDefault();
       $.ajax({
-        url: "http://coinmanager.com/priceCoin/" + document.getElementById("coinName").value,
+        url: "/priceCoin/" + document.getElementById("coinName").value,
         type: "GET",
         data: {},
         dataType: 'json',
@@ -69,7 +69,7 @@
   $(document).ready(function() {
     var ajaxCall = function() {
       $.ajax({
-        url: "http://coinmanager.com/priceCoin/" + document.getElementById("coinName").value,
+        url: "/priceCoin/" + document.getElementById("coinName").value,
         type: "GET",
         data: {},
         dataType: 'json',

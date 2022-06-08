@@ -30,13 +30,13 @@
                                     @endforeach
                                 </select>
 
-                                <input type="text" name="valorFiat" title="valorFiat" id="valorFiat" placeholder="Valor de custo">
+                                <input type="number" name="valorFiat" title="valorFiat" id="valorFiat" placeholder="Valor de custo">
 
-                                <input type="text" name="qtdVirtualCoin" title="qtdVirtualCoin" id="qtdVirtualCoin" placeholder="Quantidade de moedas compradas" class="inputTransacao">
+                                <input type="number" name="qtdVirtualCoin" title="qtdVirtualCoin" id="qtdVirtualCoin" placeholder="Quantidade de moedas compradas" class="inputTransacao">
 
                             </div>
                             <div class="form-group justify-content-center d-flex">
-                                <button type="submit" class=" submit-btn">Enviar</button>
+                                <button type="submit" class="submit-btn glow-button">Enviar</button>
                             </div>
                         </form>
                     </div>
@@ -49,21 +49,18 @@
                     @foreach ($coinsAppreciation as $transacao)
                     <div class="transacao" id="{{$transacao->codTransac}}">
                         <div class="infos">
-                            <p class="{{$transacao->sgCoin}}">{{$transacao->sgCoin}} </label>
+                            <p class="moeda {{$transacao->sgCoin}}">{{$transacao->sgCoin}} </label>
                             <div class="inlineContainerleft">
                                 <p> Moedas compradas: {{$transacao->qtdVirtualCoin}} </p>
-                                <p> Val un pago R$: {{$transacao->fiatValorUn}} </p>
-                                <p class="valorCompra">Total investido: {{$transacao->valorInvestido }} </p>
-                            </div>
-                            <div class="inlineContainerRight">
-                                <p class="valorCompra">Valorização un: {{$transacao->valorizacaoUnitaria }} </p>
+                                <p> Valor unitário pago R$: {{$transacao->fiatValorUn}} </p>
+                                <p class="valorCompra">Total investido: R${{$transacao->valorInvestido }} </p>
+                                <p class="valorCompra">Valorização unitária: R${{$transacao->valorizacaoUnitaria }} </p>
                                 <p> Valorização de: {{$transacao->percentValorizacao}} %</p>
                                 <p> Total atual R$: {{$transacao->fiatValorizacao}} </p>
                             </div>
                         </div>
                         <div>
-                            <button type="button" class="btn btn_retirada abrir" onclick="openModal()">Retirada</button>
-                            <!--linha acima vem o onclick com o modal-->
+                        <a href="{{ route('transaction.withdrawal', $transacao->codTransac) }}"> <button type="button" class="btn btn_retirada glow-button">Retirada</button></a>
                         </div>
                     </div>
                     @endforeach
@@ -74,59 +71,6 @@
             {{ $coinsAppreciation->links() }}
         </div>
     </div>
-
-
-
-    <div id="myModal" class="modal">
-
-        <!-- Modal content -->
-        <div class="modal-dialog  ">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Retirada</h5>
-                    <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <input type="number" name="qtdRetirada" title="qtdRetirada" id="qtdRetirada" placeholder="Valor total de retirada." class="Retirada">
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-success">Confirmar</button>
-                    <button type="button" class="btn btn-danger fechar" data-mdb-dismiss="modal">
-                        Cancelar
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-    <!-- Modal -->
-
-
-    <script>
-        var modal = document.getElementById("myModal");
-
-        var span = document.getElementsByClassName("fechar")[0];
-
-        function openModal() {
-            modal.style.display = "block";
-        }
-
-        span.onclick = function() {
-            modal.style.display = "none";
-        }
-
-        window.onclick = function(event) {
-            if (event.target == modal) {
-                modal.style.display = "none";
-            }
-        }
-    </script>
-
-
-    <!--
-    clicou em retirar abre um modal
--->
 
 
     <section class="footer">
@@ -158,20 +102,25 @@
                                 Object.keys(response.retorno).forEach(function(item) {
                                     t.prepend('<div class="transacao" id=' + response.retorno[item].cd_transacao + '>' +
                                         '<div class="infos">' +
-                                        '<p class="' + response.retorno[item].sg_coin + '" > ' + response.retorno[item].sg_coin + ' </p>' +
+                                        '<p class="moeda' + response.retorno[item].sg_coin + '" > ' + response.retorno[item].sg_coin + ' </p>' +
                                         '<div class="inlineContainerLeft">' +
                                         '<p> Moedas compradas: ' + response.retorno[item].qtd_virtual_coin + '</p>' +
-                                        '<p class="valorCompra">Valor un pago R$: ' + response2['fiatValorUn'] + '</p>' +
-                                        '<p class="valorCompra">Total Investido R$: ' + response2['valorInvestido'] + '</p></div>' +
-                                        '<div class="inlineContainerRight">' +
-                                        '<p> Valorização un R$: ' + response2['valorizacaoUnitaria'] + '</p>' +
+                                        '<p class="valorCompra">Valor unitário pago R$: ' + response2['fiatValorUn'] + '</p>' +
+                                        '<p class="valorCompra">Total Investido R$: ' + response2['valorInvestido'] + '</p>' +
+                                        '<p> Valorização unitária R$: ' + response2['valorizacaoUnitaria'] + '</p>' +
                                         '<p> Valorização de: ' + response2['percentValorizacao'] + '%</p>' +
                                         '<p> Total atual R$: ' + response2['fiatValorizacao'] + '</p></div>' +
-                                        '<div> <button type="button" class="btn btn_retirada abrir"><a href="http://coinmanager.com/withdrawal/' + response.retorno[0].cd_transacao + '">Retirada <a></button> </div></div>'
+                                        '<div> <a href="/withdrawal/' + response.retorno[0].cd_transacao + '"><button type="button" class="btn btn_retirada glow-button">Retirada </button> <a></div></div>'
                                     )
                                     if (document.querySelectorAll('#transacoes button').length + 1 >= 8) {
                                         const element = document.getElementById('transacoes').children[8].id;
                                         $('#' + element).remove();
+                                    }
+
+                                    var paginations = document.getElementById("teste");
+
+                                    if (paginations.firstChildtrim == "" || paginations.firstChildtrim == undefined || paginations.firstChildtrim == " " && document.querySelectorAll('#transacoes button').length == 8){
+                                        location.reload();
                                     }
                                 });
                             },

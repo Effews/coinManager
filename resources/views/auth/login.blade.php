@@ -30,7 +30,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text icon"><i class="fas fa-at"></i></span>
                                 </div>
-                                <x-input id="email" class="form-control" placeholder="Email" type="email" name="email" :value="old('email')" required autofocus />
+                                <x-input id="email" class="form-control" placeholder="Email" type="email" name="email" :value="old('email')" required autofocus autocorrect="off" autocapitalize="off"/>
                             </div>
 
                             <!-- Password -->
@@ -39,14 +39,14 @@
                                     <span class="input-group-text icon"><i class="fas fa-key"></i></span>
                                 </div>
 
-                                <x-input id="password" class="form-control" placeholder="Senha" type="password" name="password" required autocomplete="current-password" />
+                                <x-input id="password" class="form-control" placeholder="Senha" type="password" name="password" required autocomplete="current-password" autocorrect="off" autocapitalize="off" />
                             </div>
                             <!-- Remember Me -->
                             <div class="row align-items-center remember">
                                 <input type="checkbox">{{ __('Lembrar') }}
                             </div>
                             <div class="form-group">
-                                <x-button class="login_btn" >
+                                <x-button class="login_btn glow-button" >
                                     {{ __('Log in') }}
                                 </x-button>
 

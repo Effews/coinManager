@@ -188585,17 +188585,24 @@ select {
 top: 200px;
 }
 
+div#transacoes{
+  margin-top:5% ;
+}
+
 .transacao{
     padding: 1%;
-    width: 250px;
-    height: 270px;
+    width: 275px;
+    height: 250px;
     display: grid;
     font-size: 0.96rem;
-    margin-top: 15px;
-    margin-left: 10px;
+    margin-left: 5px;
     margin-bottom: 10px;
     border: 2px solid rgb(180, 175, 175);
     border-radius: 6px;
+}
+.transacao .moeda{
+  text-align: center;
+  font-weight: 700;
 }
 
 .inlineContainerleft{
@@ -188685,10 +188692,13 @@ font-size: 0.85rem;
 
 .card-header h3{
   font-size: large;
-  color: black;
+  color: white;
   font-weight: 700;
 }
 
+input::placeholder {
+  font: 14px/3 sans-serif;
+}
 
 .titulo{
   justify-content: center;
@@ -188721,7 +188731,9 @@ height: 30px !important;
 
 }
 .form-control{
-height: 30px ;
+height: 30px !important;
+font-size: 14px !important;
+
 }
 
 input:focus{
@@ -188767,6 +188779,30 @@ color: white !important;
 background-color: black !important;
 }
 
+.register_btn{
+  color: black !important;
+  background-color: #FFC312 !important;
+  width: 380px;
+  height: 32px;
+  font-size: small !important;
+  text-align: center  !important;
+  display: inline-block !important;
+  padding:.8rem 3rem !important;
+  border:.2rem solid var(--yellow) !important;
+  cursor: pointer !important;
+  font-size: 1.7rem !important;
+  border-radius: .5rem !important;
+  position: relative !important;
+  overflow: hidden !important;
+  z-index: 0 !important;
+  margin-top: 1rem !important;
+  }
+  
+  .register_btn:hover{
+  color: white !important;
+  background-color: black !important;
+  }
+
 .submit-btn{
 color: black;
 background-color: #FFC312;
@@ -188782,19 +188818,23 @@ height: 32px !important;
     background-color: black;
 }
 
-div button .btn_retirada{
-  justify-content: center;
+.glow-button:hover {
+  color: rgba(255, 255, 255, 1);
+  box-shadow: 0 5px 15px #FFC312;
 }
+
 
 .btn_retirada{
   color: black;
   background-color: #FFC312;
   font-size: 1.3rem !important;
+  width: 250px;
+  border:.2rem solid var(--yellow) !important;
 }
 
 .btn_retirada:hover{
   color: white;
-  background-color: #c09000;
+  background-color: black;
 }
 
 
@@ -188819,7 +188859,7 @@ margin-left: 4px;
 
 .forgot{
   font-size: small !important;
-  color: #FFC312 !important;
+  color: white !important;
 }
 .card-footer-register{
   padding: 0;
@@ -188924,53 +188964,9 @@ input#valorFiat {
   width: 241px;
 }
 
-.btn-modal{
-  border:1px solid; 
-  padding: 11px 21px; 
-  color:white;
-  border-radius:6px; 
-  font-size: 20px; 
-  font-family:helvetica, serif;
-  text-decoration:none;
-  float:left;
-}
-/* The Modal (background) */
-.modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  left: 0;
-  top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-}
-
-/* Modal Content/Box */
-.modal-content {
-  background-color: #fefefe;
-  margin: 15% auto; /* 15% from the top and centered */
-  padding: 20px;
-  border: 1px solid #888;
-  width: 80%; /* Could be more or less, depending on screen size */
-}
-
 
 /* media queries  */
 
-.modal-header h5{
-  display: flex !important;
-  justify-content: center !important;
-  align-items: flex-start !important;
-  color: #000;
-  font-weight: 700;
-}
-
-.modal-body #qtdRetirada{
-  width: 100%;
-}
 
 
 /* Chrome, Safari, Edge, Opera */

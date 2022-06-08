@@ -30,7 +30,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text icon"><i class="fas fa-user"></i></span>
                                 </div>
-                                <x-input id="name" class="form-control" placeholder="Nome" type="text" name="name" :value="old('name')" required autofocus />
+                                <x-input id="name" class="form-control" placeholder="Nome" type="text" name="name" :value="old('name')" required autofocus autocapitalize="off"/>
                             </div>
 
                             <!-- Email Address -->
@@ -38,7 +38,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text icon"><i class="fas fa-at"></i></span>
                                 </div>
-                                <x-input id="email" class="form-control" placeholder="Email" type="email" name="email" :value="old('email')" required autofocus />
+                                <x-input id="email" class="form-control" placeholder="Email" type="email" name="email" :value="old('email')" required autofocus autocapitalize="off"/>
                             </div>
 
                             <!-- Password -->
@@ -46,7 +46,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text icon"><i class="fas fa-key"></i></span>
                                 </div>
-                                <x-input id="password" class="form-control" placeholder="Senha" type="password" name="password" required autocomplete="new-password" />
+                                <x-input id="password" class="form-control" placeholder="Senha" type="password" name="password" required autocomplete="new-password" autocapitalize="off"/>
                             </div>
 
                             <!-- Confirm Password -->
@@ -54,11 +54,11 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text icon"><i class="fas fa-key"></i></span>
                                 </div>
-                                <x-input id="password_confirmation" class=" form-control" placeholder="Confirme sua Senha" type="password" name="password_confirmation" required />
+                                <x-input id="password_confirmation" class=" form-control" placeholder="Confirme sua Senha" type="password" name="password_confirmation" required autocapitalize="off"/>
                             </div>
                             <div class="form-group">
-                                <x-button class="btn login_btn">
-                                    {{ __('Register') }}
+                                <x-button class="register_btn glow-button">
+                                    {{ __('Registre-se') }}
                                 </x-button>
                             </div>
                         </form>

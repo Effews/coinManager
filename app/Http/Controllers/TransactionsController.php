@@ -122,7 +122,6 @@ class TransactionsController extends Controller
    
         foreach ($transacoes as $transacao){
             $transacoes[$iteratorAppreciation] = $this->getCoinPrice($transacoes[$iteratorAppreciation]->cd_transacao);
-            echo "<script>console.log('Debug Objects: " . $iteratorAppreciation . "' );</script>";
             $iteratorAppreciation = $iteratorAppreciation + 1;
         }
     

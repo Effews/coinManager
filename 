@@ -1,0 +1,16 @@
+Revert "Corrige rota de retirada do ajax"
+
+This reverts commit 27e929f4487b079784514b27a2d12862219a3b27.
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# On branch master
+# Your branch is behind 'origin/master' by 4 commits, and can be fast-forwarded.
+#   (use "git pull" to update your local branch)
+#
+# You are currently reverting commit 27e929f.
+#
+# Changes to be committed:
+#	modified:   config/database.php
+#	modified:   resources/views/commonUser/index.blade.php
