@@ -3,7 +3,6 @@
 
 <php $listCoins ?>
 
-
     <div class="container">
         <div class="row">
 
