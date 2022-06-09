@@ -91,6 +91,16 @@ top: 350px;
   position: absolute;
   top: 350px;
 }
+
+.card-forgot1{
+  height: 170px;
+  margin-top: auto;
+  margin-bottom: auto;
+  width: 400px;
+  background-color: rgba(0,0,0,0.5) !important;
+  position: absolute;
+  top: 350px;
+}
 .card-cot{
   height: 200px;
   margin-top: auto;

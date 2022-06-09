@@ -16,7 +16,7 @@
 
         <div class="container">
             <div class="d-flex justify-content-center">
-                <div class="card-forgot">
+                <div class="card-forgot1">
                     <div class="card-header">
                         <h3>Esqueceu sua Senha?</h3>
                     </div>
@@ -33,9 +33,11 @@
                             </div>
 
                             <div class="form-group">
-                                <x-button class="float-right login_btn glow-button">
-                                    {{ __('Email Senha Reset Link') }}
-                                </x-button>
+                                <a href="{{ route('login') }}">
+                                    <x-button class="float-right login_btn glow-button">
+                                        Enviar Email
+                                    </x-button>
+                                </a>
                             </div>
                         </form>
                     </div>
