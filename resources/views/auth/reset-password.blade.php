@@ -55,13 +55,7 @@
                     </div>
                     <div class="card-footer">
                         <div class="d-flex justify-content-center links">
-                            Não tem uma conta?<a href="{{ route('register') }}">Cadastre-se</a>
-                        </div>
-                        <div class="d-flex justify-content-center links">
-                        Ou Faça    
-                        <a href="{{ route('login') }}">
-                                Login
-                            </a>
+                            Ou faça seu<a href="{{ route('login') }}">Login</a>
                         </div>
                     </div>
                 </div>
