@@ -33,7 +33,7 @@
                             </div>
 
                             <div class="form-group">
-                                <x-button class="btn float-right login_btn">
+                                <x-button class="float-right login_btn glow-button">
                                     {{ __('Email Senha Reset Link') }}
                                 </x-button>
                             </div>
@@ -47,12 +47,6 @@
     </x-auth-card>
 </x-guest-layout>
 <section class="footer">
-
-    <div class="share">
-        <a href="#" class="btn">facebook</a>
-        <a href="#" class="btn">twitter</a>
-        <a href="#" class="btn">instagram</a>
-    </div>
 
     <h1 class="credit"> Desenvolvido por <span> Igor Oliveira, Leonardo Freitas, Marlon Santos </span> | Todos os direitos reservados! </h1>
 
