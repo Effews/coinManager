@@ -118,9 +118,13 @@ font-size: 0.85rem;
   color: white;
   font-weight: 700;
 }
+input{
+  text-transform: lowercase;
+}
 
 input::placeholder {
   font: 14px/3 sans-serif;
+  text-transform: none;
 }
 
 .titulo{
@@ -244,6 +248,7 @@ height: 32px !important;
 .glow-button:hover {
   color: rgba(255, 255, 255, 1);
   box-shadow: 0 5px 15px #FFC312;
+  transition: all 0.4s;
 }
 
 
@@ -272,17 +277,28 @@ font-size: medium;
 
 .links a{
 margin-left: 4px;
+color:#FFC312;
+transition: all 0.4s;
 }
 
+.links a:hover{
+  color:white;
+}
 
 .labelColor{
+  color: #FFC312 !important;
+  font-weight: 700 !important;
+}
+.labelColor2{
   color: white !important;
   font-weight: 700 !important;
 }
 
 .forgot{
   font-size: small !important;
-  color: white !important;
+  color: #FFC312 !important;
+  transition: all 0.4s;
+  font-weight: 600;
 }
 .card-footer-register{
   padding: 0;

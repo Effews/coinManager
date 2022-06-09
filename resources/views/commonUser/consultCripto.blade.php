@@ -27,7 +27,7 @@
           </div>
         </form>
         <div id="transacoes" name="transacoes" class="row d-flex justify-content-center">
-          <label for="coinname" class="form-label labelColor">Valor em tempo real: </label>
+          <label for="coinname" class="form-label labelColor2">Valor em tempo real: </label>
         </div>
         <p for="fonte" class="fonte justify-content-center d-flex">Dados extraidos pela Binance.</a></p>
       </div>
